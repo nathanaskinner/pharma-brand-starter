@@ -1,4 +1,12 @@
 # CloudCannon: visual editing on top of the git repo. Each save is a commit to the staging branch.
+
+# Uploads land in src/assets/images (Eleventy's input folder). `static: src` is stripped from the
+# path written to front matter, so files are referenced as /assets/images/<file>.
+paths:
+  static: src
+  uploads: src/assets/images
+  uploads_filename: "{filename|slugify}"
+
 collections_config:
   pages:
     path: src/pages
@@ -26,7 +34,7 @@ _inputs:
       values: [together, support]
   image:
     type: image
-    options: { paths: { uploads: src/assets/images } }
+    options: { paths: { static: src, uploads: src/assets/images } }
   full:
     type: markdown
     comment: Full ISI. Any change requires MLR approval.
