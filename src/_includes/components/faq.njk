@@ -1,13 +1,15 @@
-<section class="section">
-  <div class="container container--narrow">
-    {% if section.heading %}<h2{% editable "text", "heading" %}>{{ section.heading }}</h2>{% endif %}
-    <div class="faq"{% editable "array", "items" %}>
-      {% for item in section.items %}
+{% macro faqItem(item) %}
       <details class="faq__item"{% editable "array-item" %}>
         <summary{% editable "text", "q", { type: "span" } %}>{{ item.q }}</summary>
         <div class="faq__answer"{% editable "text", "a" %}>{{ item.a | md | safe }}</div>
       </details>
-      {% endfor %}
+{% endmacro %}
+<section class="section">
+  <div class="container container--narrow">
+    {% if section.heading %}<h2{% editable "text", "heading" %}>{{ section.heading }}</h2>{% endif %}
+    <div class="faq"{% editable "array", "items" %}>
+      {% for item in section.items %}{{ faqItem(item) }}{% endfor %}
+      {% if not env.isProduction %}<template>{{ faqItem({ q: " ", a: " " }) }}</template>{% endif %}
     </div>
   </div>
 </section>

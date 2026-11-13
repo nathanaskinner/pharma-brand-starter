@@ -11,8 +11,21 @@ const files = (await readdir(OUT, { recursive: true })).filter((f) => f.endsWith
 const problems = [];
 const titles = {};
 
+// <template> content is inert (CloudCannon blueprints for new items), so leave it out of the checks.
+// Strip innermost templates first so nested ones are removed cleanly.
+const stripTemplates = (html) => {
+  const inner = /<template\b[^>]*>(?:(?!<template\b)[\s\S])*?<\/template>/g;
+  let out = html;
+  let previous;
+  do {
+    previous = out;
+    out = out.replace(inner, "");
+  } while (out !== previous);
+  return out;
+};
+
 for (const file of files) {
-  const html = await readFile(`${OUT}/${file}`, "utf8");
+  const html = stripTemplates(await readFile(`${OUT}/${file}`, "utf8"));
   const where = `/${file}`;
 
   // Compliance

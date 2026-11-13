@@ -1,9 +1,4 @@
-<section class="section{% if section.background %} section--{{ section.background }}{% endif %}">
-  <div class="container">
-    {% if section.heading %}<h2{% editable "text", "heading" %}>{{ section.heading }}</h2>{% endif %}
-    {% if section.intro %}<p class="section__intro"{% editable "text", "intro", { type: "span" } %}>{{ section.intro }}</p>{% endif %}
-    <ul class="card-grid" role="list"{% editable "array", "cards" %}>
-      {% for card in section.cards %}
+{% macro cardItem(card) %}
       <li class="card"{% editable "array-item" %}>
         {% if card.image %}<img{% editable "image", { src: "image" } %} src="{{ card.image }}" alt="" width="1600" height="1000">{% endif %}
         <div class="card__body">
@@ -11,7 +6,14 @@
           {% if card.body %}<p{% editable "text", "body", { type: "span" } %}>{{ card.body }}</p>{% endif %}
         </div>
       </li>
-      {% endfor %}
+{% endmacro %}
+<section class="section{% if section.background %} section--{{ section.background }}{% endif %}">
+  <div class="container">
+    {% if section.heading %}<h2{% editable "text", "heading" %}>{{ section.heading }}</h2>{% endif %}
+    {% if section.intro %}<p class="section__intro"{% editable "text", "intro", { type: "span" } %}>{{ section.intro }}</p>{% endif %}
+    <ul class="card-grid" role="list"{% editable "array", "cards" %}>
+      {% for card in section.cards %}{{ cardItem(card) }}{% endfor %}
+      {% if not env.isProduction %}<template>{{ cardItem({ title: " ", body: " ", url: "#", image: "/assets/images/card-faq.jpg" }) }}</template>{% endif %}
     </ul>
   </div>
 </section>

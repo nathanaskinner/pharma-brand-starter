@@ -1,16 +1,18 @@
-<section class="section{% if section.background %} section--{{ section.background }}{% endif %}">
-  <div class="container">
-    {% if section.heading %}<h2{% editable "text", "heading" %}>{{ section.heading }}</h2>{% endif %}
-    <ol class="steps" role="list"{% editable "array", "items" %}>
-      {% for item in section.items %}
+{% macro stepItem(item, number) %}
       <li class="steps__item"{% editable "array-item" %}>
-        <span class="steps__number" aria-hidden="true">{{ loop.index }}</span>
+        <span class="steps__number" aria-hidden="true">{{ number }}</span>
         <div>
           <h3{% editable "text", "title", { type: "span" } %}>{{ item.title }}</h3>
           <p{% editable "text", "body", { type: "span" } %}>{{ item.body }}</p>
         </div>
       </li>
-      {% endfor %}
+{% endmacro %}
+<section class="section{% if section.background %} section--{{ section.background }}{% endif %}">
+  <div class="container">
+    {% if section.heading %}<h2{% editable "text", "heading" %}>{{ section.heading }}</h2>{% endif %}
+    <ol class="steps" role="list"{% editable "array", "items" %}>
+      {% for item in section.items %}{{ stepItem(item, loop.index) }}{% endfor %}
+      {% if not env.isProduction %}<template>{{ stepItem({ title: " ", body: " " }, "+") }}</template>{% endif %}
     </ol>
   </div>
 </section>
