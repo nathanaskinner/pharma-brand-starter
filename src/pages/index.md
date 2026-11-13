@@ -9,8 +9,8 @@ sections:
     eyebrow: Once-weekly Fictiva™
     heading: Make room for the life you want
     body: Fictiva is a fictional once-weekly prescription medicine. This demo shows how a real brand site is structured, reviewed and built.
-    image: /assets/images/hero-home.jpg
-    alt: A person stretching outdoors at sunrise
+    image: /assets/images/home-hero.jpg
+    alt: A woman running along a rocky ridge, silhouetted against the setting sun
     cta: { label: See if Fictiva is right for you, url: /treatment/is-fictiva-right-for-me.html }
     secondaryCta: { label: How to get Fictiva, url: /treatment/how-to-get-fictiva.html }
   - _type: stat-row
@@ -23,9 +23,9 @@ sections:
   - _type: card-grid
     heading: Find what you need
     cards:
-      - { title: Is Fictiva right for me?, body: Results, safety and real stories., url: /treatment/is-fictiva-right-for-me.html, image: /assets/images/card-right-for-me.jpg }
-      - { title: Starting Fictiva, body: Your first weeks, step by step., url: /treatment/starting-fictiva.html, image: /assets/images/card-starting.jpg }
-      - { title: Cost and savings, body: See what you may pay., url: /treatment/cost-and-savings.html, image: /assets/images/card-savings.jpg }
+      - { title: Is Fictiva right for me?, body: Results, safety and real stories., url: /treatment/is-fictiva-right-for-me.html, image: /assets/images/home-biking.jpg }
+      - { title: Starting Fictiva, body: Your first weeks, step by step., url: /treatment/starting-fictiva.html, image: /assets/images/home-hiking.jpg }
+      - { title: Cost and savings, body: See what you may pay., url: /treatment/cost-and-savings.html, image: /assets/images/home-paddling.jpg }
   - _type: cta
     heading: Talk to your healthcare provider
     body: Our discussion guide helps you prepare for the conversation.

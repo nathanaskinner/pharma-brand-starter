@@ -1,6 +1,6 @@
 # Pharma Brand Starter (Eleventy)
 
-A static-site starter for small and mid-size pharma brand sites, built with **Eleventy 3**. The demo content is for **Fictiva™ (fictivatide), a fictional product**. Every word, image and number is placeholder material.
+A static-site starter for small and mid-size pharma brand sites, built with **Eleventy 3**. The demo content is for **Fictiva™ (fictivatide), a fictional product**. Every word and number is placeholder material. Images are generated placeholders, except the homepage photos, which come from Unsplash (see [Image credits](#image-credits)).
 
 It shows a production-style setup for a regulated consumer site: section-based pages, a single source for Important Safety Information (ISI), job codes on every page, shared articles published in multiple hubs, MLR-friendly staging, and a build that fails when compliance rules are broken.
 
@@ -86,3 +86,14 @@ sections:
 - Set the AI crawler policy in `crawlers.yml` with client legal.
 - Replace the placeholder images with licensed, MLR-approved images.
 - Confirm BAA coverage for hosting, forms and any other service that could touch patient data.
+
+## Image credits
+
+The homepage photos are used under the [Unsplash License](https://unsplash.com/license). They are cropped to 1600×1000.
+
+| File | Photo | Photographer |
+|---|---|---|
+| `home-hero.jpg` | [Runner on a ridge at sunset](https://unsplash.com/photos/I1EWTM5mFEM) | Venti Views |
+| `home-biking.jpg` | [Mountain biking near Las Vegas](https://unsplash.com/photos/OYACKxTLAAM) | Bundok Biker |
+| `home-hiking.jpg` | [Hikers on the W trek, Chile](https://unsplash.com/photos/Yizrl9N_eDA) | Toomas Tartes |
+| `home-paddling.jpg` | [Down the river](https://unsplash.com/photos/6F98shIQysI) | Razvan Chisu |
