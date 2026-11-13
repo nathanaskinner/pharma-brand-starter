@@ -1,11 +1,11 @@
 <section class="section">
   <div class="container container--narrow">
-    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
-    <div class="faq">
+    {% if section.heading %}<h2{% editable "text", "heading" %}>{{ section.heading }}</h2>{% endif %}
+    <div class="faq"{% editable "array", "items" %}>
       {% for item in section.items %}
-      <details class="faq__item">
-        <summary>{{ item.q }}</summary>
-        <div class="faq__answer">{{ item.a | md | safe }}</div>
+      <details class="faq__item"{% editable "array-item" %}>
+        <summary{% editable "text", "q", { type: "span" } %}>{{ item.q }}</summary>
+        <div class="faq__answer"{% editable "text", "a" %}>{{ item.a | md | safe }}</div>
       </details>
       {% endfor %}
     </div>

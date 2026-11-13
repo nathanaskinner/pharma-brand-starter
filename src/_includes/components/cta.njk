@@ -1,7 +1,7 @@
 <section class="section section--brand">
   <div class="container cta">
-    <h2>{{ section.heading }}</h2>
-    {% if section.body %}<p>{{ section.body }}</p>{% endif %}
-    <a class="button button--light" href="{{ section.cta.url }}">{{ section.cta.label }}</a>
+    <h2{% editable "text", "heading" %}>{{ section.heading }}</h2>
+    {% if section.body %}<p{% editable "text", "body", { type: "span" } %}>{{ section.body }}</p>{% endif %}
+    <a class="button button--light" href="{{ section.cta.url }}"{% editable "text", "cta.label", { type: "span" } %}>{{ section.cta.label }}</a>
   </div>
 </section>

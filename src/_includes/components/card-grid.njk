@@ -1,14 +1,14 @@
 <section class="section{% if section.background %} section--{{ section.background }}{% endif %}">
   <div class="container">
-    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
-    {% if section.intro %}<p class="section__intro">{{ section.intro }}</p>{% endif %}
-    <ul class="card-grid" role="list">
+    {% if section.heading %}<h2{% editable "text", "heading" %}>{{ section.heading }}</h2>{% endif %}
+    {% if section.intro %}<p class="section__intro"{% editable "text", "intro", { type: "span" } %}>{{ section.intro }}</p>{% endif %}
+    <ul class="card-grid" role="list"{% editable "array", "cards" %}>
       {% for card in section.cards %}
-      <li class="card">
-        {% if card.image %}<img src="{{ card.image }}" alt="" width="1600" height="1000">{% endif %}
+      <li class="card"{% editable "array-item" %}>
+        {% if card.image %}<img{% editable "image", { src: "image" } %} src="{{ card.image }}" alt="" width="1600" height="1000">{% endif %}
         <div class="card__body">
-          <h3 class="card__title">{% if card.url %}<a href="{{ card.url }}">{{ card.title }}</a>{% else %}{{ card.title }}{% endif %}</h3>
-          {% if card.body %}<p>{{ card.body }}</p>{% endif %}
+          <h3 class="card__title">{% if card.url %}<a href="{{ card.url }}"{% editable "text", "title", { type: "span" } %}>{{ card.title }}</a>{% else %}<span{% editable "text", "title", { type: "span" } %}>{{ card.title }}</span>{% endif %}</h3>
+          {% if card.body %}<p{% editable "text", "body", { type: "span" } %}>{{ card.body }}</p>{% endif %}
         </div>
       </li>
       {% endfor %}

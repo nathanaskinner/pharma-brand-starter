@@ -36,7 +36,7 @@ Requires Node 20 or later. `npm run placeholders` regenerates the placeholder im
 | **SEO**: canonical URLs (shared articles point to their primary hub), Open Graph, JSON-LD, XML and HTML sitemaps | `partials/head-meta.njk`, `partials/structured-data.njk`, `src/sitemap.*` |
 | **AI search**: crawler policy in data, `llms.txt`, content readable without JavaScript | `_data/crawlers.yml`, `src/robots.txt.njk`, `src/llms.txt.njk` |
 | **Styleguide**: every component on one page (not built in production) | `src/styleguide/` |
-| **CloudCannon** visual editing config | `cloudcannon.config.yml` |
+| **CloudCannon** visual editing: Editable Regions on section text, images and arrays, so editors change copy on the live preview. The attributes are left out of production HTML | `cloudcannon.config.yml`, `editable` shortcode in `eleventy.config.js` |
 | **Vercel** config: security headers, caching, redirects | `vercel.json` |
 
 ## How content works

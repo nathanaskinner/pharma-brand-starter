@@ -1,8 +1,8 @@
 {# Doctor discussion guide: answers stay in the browser; nothing is sent anywhere. #}
 <section class="section">
   <div class="container container--narrow">
-    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
-    {% if section.intro %}<p class="section__intro">{{ section.intro }}</p>{% endif %}
+    {% if section.heading %}<h2{% editable "text", "heading" %}>{{ section.heading }}</h2>{% endif %}
+    {% if section.intro %}<p class="section__intro"{% editable "text", "intro", { type: "span" } %}>{{ section.intro }}</p>{% endif %}
     <form class="quiz" data-quiz>
       {% for q in section.questions %}
       <fieldset class="quiz__question">

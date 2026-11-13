@@ -30,6 +30,14 @@ _inputs:
   full:
     type: markdown
     comment: Full ISI. Any change requires MLR approval.
+  # Section fields rendered with the `md` filter. Markdown inputs keep visual edits as Markdown, not HTML.
+  body:
+    type: markdown
+  text:
+    type: markdown
+  a:
+    type: markdown
+    label: Answer
   isiMode:
     type: select
     options: { values: [full, none] }

@@ -1,7 +1,7 @@
 {% set v = videos[section.video] %}
 <section class="section">
   <div class="container container--narrow">
-    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
+    {% if section.heading %}<h2{% editable "text", "heading" %}>{{ section.heading }}</h2>{% endif %}
     <figure class="video" data-vimeo-id="{{ v.vimeoId }}" data-video-title="{{ v.title }}">
       <button type="button" class="video__play">
         <img src="{{ v.poster }}" alt="" width="1600" height="1000">

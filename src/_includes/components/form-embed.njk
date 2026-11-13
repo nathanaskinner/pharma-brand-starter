@@ -1,8 +1,8 @@
 {% set form = forms[section.form] %}
 <section class="section">
   <div class="container container--narrow">
-    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
-    {% if section.intro %}<div class="section__intro">{{ section.intro | md | safe }}</div>{% endif %}
+    {% if section.heading %}<h2{% editable "text", "heading" %}>{{ section.heading }}</h2>{% endif %}
+    {% if section.intro %}<div class="section__intro"{% editable "text", "intro" %}>{{ section.intro | md | safe }}</div>{% endif %}
     <div class="form-embed" id="form-{{ form.id }}">
       {% if form.id != "000000" %}
         {# Paste the exact JS embed snippet from FormAssembly's Publish tab. #}

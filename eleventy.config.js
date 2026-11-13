@@ -37,6 +37,19 @@ export default function (eleventyConfig) {
       .format(date instanceof Date ? date : new Date(date))
   );
 
+  // CloudCannon Editable Regions: {% editable "text", "heading" %} writes the data attributes the
+  // Visual Editor looks for. Props are relative to the nearest editable ancestor (e.g. a section).
+  // Pass an object for multi-value regions: {% editable "image", { src: "image", alt: "alt" } %}.
+  // Omitted from production builds; CloudCannon builds in staging mode.
+  eleventyConfig.addShortcode("editable", (type, prop, options = {}) => {
+    if (isProduction()) return "";
+    const attrs = [`data-editable="${type}"`];
+    if (typeof prop === "string") attrs.push(`data-prop="${prop}"`);
+    else for (const [name, value] of Object.entries(prop ?? {})) attrs.push(`data-prop-${name}="${value}"`);
+    for (const [name, value] of Object.entries(options)) attrs.push(`data-${name}="${value}"`);
+    return " " + attrs.join(" ");
+  });
+
   // Collections
   const byOrder = (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99);
 

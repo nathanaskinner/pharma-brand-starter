@@ -2,11 +2,15 @@
 layout: layouts/base.njk
 ---
 {% if breadcrumbs %}{% include "partials/breadcrumbs.njk" %}{% endif %}
-{% for section in sections %}
-  {% include "components/" + section._type + ".njk" %}
-{% endfor %}
+{% if sections %}
+<div{% editable "array", "sections" %}>
+  {% for section in sections %}
+  <div{% editable "array-item" %}>{% include "components/" + section._type + ".njk" %}</div>
+  {% endfor %}
+</div>
+{% endif %}
 {% if content | trim %}
 <section class="section">
-  <div class="container prose">{{ content | safe }}</div>
+  <div class="container prose"{% editable "text", "@content" %}>{{ content | safe }}</div>
 </section>
 {% endif %}
