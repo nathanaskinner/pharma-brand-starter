@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ seoTitle }}</title>
 <meta name="description" content="{{ seoDesc }}">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="canonical" href="{{ site.url }}{{ canonicalUrl or page.url }}">
 {% if not env.isProduction or (seo and seo.noindex) or site.demo %}<meta name="robots" content="noindex, nofollow">{% endif %}
 <meta property="og:type" content="website">

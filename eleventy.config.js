@@ -17,6 +17,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/fonts": "assets/fonts" });
   eleventyConfig.addPassthroughCopy({ "src/assets/images/og": "assets/images/og" });
   eleventyConfig.addPassthroughCopy({ "src/assets/pdf": "pdf" });
+  // Icons live at the site root, where browsers and crawlers look for them
+  eleventyConfig.addPassthroughCopy({ "src/assets/icons": "/" });
 
   // Responsive images: every <img> in the output becomes a <picture> with AVIF/WebP
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
@@ -88,9 +90,11 @@ export default function (eleventyConfig) {
     );
   });
 
-  // Bundle CSS + JS with esbuild before each build
+  // Bundle CSS + JS with esbuild before each build. Fonts imported in main.css are copied to
+  // /assets/fonts/ with content hashes, so the long-lived cache headers stay safe.
+  let preloadFonts = [];
   eleventyConfig.on("eleventy.before", async () => {
-    await esbuild.build({
+    const result = await esbuild.build({
       entryPoints: ["src/assets/css/main.css", "src/assets/js/main.js"],
       outbase: "src/assets",
       outdir: "_site/assets",
@@ -98,9 +102,21 @@ export default function (eleventyConfig) {
       minify: isProduction(),
       sourcemap: !isProduction(),
       format: "esm",
+      loader: { ".woff2": "file" },
+      assetNames: "fonts/[name]-[hash]",
+      metafile: true,
       logLevel: "warning",
     });
+    // Preload the upright Latin subset: it's needed for almost every page's first paint.
+    preloadFonts = Object.keys(result.metafile.outputs)
+      .filter((file) => /noto-sans-latin-wght-normal-[^/]+\.woff2$/.test(file))
+      .map((file) => file.replace(/^_site/, ""));
   });
+  eleventyConfig.addShortcode("fontPreloads", () =>
+    preloadFonts
+      .map((href) => `<link rel="preload" href="${href}" as="font" type="font/woff2" crossorigin>`)
+      .join("\n  ")
+  );
   eleventyConfig.addWatchTarget("src/assets/css/");
   eleventyConfig.addWatchTarget("src/assets/js/");
 }

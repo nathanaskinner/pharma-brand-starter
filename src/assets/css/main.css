@@ -1,3 +1,9 @@
+/* ---------- Fonts ---------- */
+/* Noto Sans (variable, from Google Fonts via Fontsource), served from this site.
+   esbuild copies the .woff2 files to /assets/fonts/ with content hashes. */
+@import "@fontsource-variable/noto-sans/wght.css";
+@import "@fontsource-variable/noto-sans/wght-italic.css";
+
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1rem; }

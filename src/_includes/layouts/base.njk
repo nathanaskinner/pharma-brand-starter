@@ -2,11 +2,9 @@
 <html lang="{{ site.locale | default('en-US') }}">
 <head>
   {% include "partials/head-meta.njk" %}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400..700;1,400..700&display=swap">
-  <link rel="stylesheet" href="/assets/css/tokens.css">
-  <link rel="stylesheet" href="/assets/css/main.css">
+  {% fontPreloads %}
+  <link rel="stylesheet" href="/assets/css/tokens.css?v={{ env.commit }}">
+  <link rel="stylesheet" href="/assets/css/main.css?v={{ env.commit }}">
   {% include "partials/consent.njk" %}
 </head>
 <body class="{{ bodyClass }}">
@@ -28,6 +26,6 @@
 
   {% include "partials/footer.njk" %}
   {% if not env.isProduction %}{% include "partials/seo-review.njk" %}{% endif %}
-  <script type="module" src="/assets/js/main.js"></script>
+  <script type="module" src="/assets/js/main.js?v={{ env.commit }}"></script>
 </body>
 </html>
