@@ -4,8 +4,8 @@
       {% if section.eyebrow %}<p class="eyebrow"{% editable "text", "eyebrow" %}>{{ section.eyebrow }}</p>{% endif %}
       <h1 class="hero__heading"{% editable "text", "heading" %}>{{ section.heading }}</h1>
       {% if section.body %}<div class="hero__body"{% editable "text", "body" %}>{{ section.body | md | safe }}</div>{% endif %}
-      {% if section.cta %}<a class="button" href="{{ section.cta.url }}"{% editable "text", "cta.label", { type: "span" } %}>{{ section.cta.label }}</a>{% endif %}
-      {% if section.secondaryCta %}<a class="button button--ghost" href="{{ section.secondaryCta.url }}"{% editable "text", "secondaryCta.label", { type: "span" } %}>{{ section.secondaryCta.label }}</a>{% endif %}
+      {% if section.cta.label %}<a class="button" href="{{ section.cta.url }}"{% editable "text", "cta.label", { type: "span" } %}>{{ section.cta.label }}</a>{% endif %}
+      {% if section.secondaryCta.label %}<a class="button button--ghost" href="{{ section.secondaryCta.url }}"{% editable "text", "secondaryCta.label", { type: "span" } %}>{{ section.secondaryCta.label }}</a>{% endif %}
     </div>
     {% if section.image %}
     <div class="hero__media">

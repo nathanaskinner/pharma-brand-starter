@@ -2,6 +2,7 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import * as esbuild from "esbuild";
 import { load as loadYaml } from "js-yaml";
 import markdownIt from "markdown-it";
+import { readFileSync } from "node:fs";
 import hubs from "./src/_data/hubs.js";
 
 const md = markdownIt({ html: true, typographer: true });
@@ -48,6 +49,26 @@ export default function (eleventyConfig) {
     else for (const [name, value] of Object.entries(prop ?? {})) attrs.push(`data-prop-${name}="${value}"`);
     for (const [name, value] of Object.entries(options)) attrs.push(`data-${name}="${value}"`);
     return " " + attrs.join(" ");
+  });
+
+  // Blueprints for new sections in the Visual Editor, built from the `_structures` defaults in
+  // cloudcannon.config.yml. Empty values become placeholders so every editable element renders.
+  eleventyConfig.addGlobalData("sectionBlueprints", () => {
+    const readYaml = (file) => loadYaml(readFileSync(file, "utf8"));
+    const { _structures } = readYaml("cloudcannon.config.yml");
+    const firstKey = (file) => Object.keys(readYaml(file))[0];
+    const fill = (key, value) => {
+      if (value !== null && typeof value === "object" && !Array.isArray(value))
+        return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, fill(k, v)]));
+      if (value !== null && value !== undefined) return value;
+      if (key === "image") return "/assets/images/hero-home.jpg";
+      if (key === "alt") return "";
+      if (key === "url") return "#";
+      if (key === "video") return firstKey("src/_data/videos.yml");
+      if (key === "form") return firstKey("src/_data/forms.yml");
+      return " ";
+    };
+    return _structures.sections.values.map(({ value }) => fill(null, value));
   });
 
   // Collections

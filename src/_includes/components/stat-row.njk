@@ -1,13 +1,15 @@
-<section class="section section--alt">
-  <div class="container">
-    {% if section.heading %}<h2{% editable "text", "heading" %}>{{ section.heading }}</h2>{% endif %}
-    <ul class="stat-row" role="list"{% editable "array", "stats" %}>
-      {% for stat in section.stats %}
+{% macro statItem(stat) %}
       <li class="stat"{% editable "array-item" %}>
         <span class="stat__value"{% editable "text", "value", { type: "span" } %}>{{ stat.value }}</span>
         <span class="stat__label"{% editable "text", "label", { type: "span" } %}>{{ stat.label }}</span>
       </li>
-      {% endfor %}
+{% endmacro %}
+<section class="section section--alt">
+  <div class="container">
+    {% if section.heading %}<h2{% editable "text", "heading" %}>{{ section.heading }}</h2>{% endif %}
+    <ul class="stat-row" role="list"{% editable "array", "stats" %}>
+      {% for stat in section.stats %}{{ statItem(stat) }}{% endfor %}
+      {% if not env.isProduction %}<template>{{ statItem({ value: " ", label: " " }) }}</template>{% endif %}
     </ul>
     {% if section.footnote %}<p class="footnote"{% editable "text", "footnote", { type: "span" } %}>{{ section.footnote }}</p>{% endif %}
   </div>

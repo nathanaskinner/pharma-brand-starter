@@ -1,0 +1,17 @@
+{#- Renders front matter `sections` (one component per _type).
+    Outside production it is also a CloudCannon Editable Region: editors can reorder, duplicate,
+    delete and add sections on the preview. Each <template data-id> is the blueprint the Visual
+    Editor uses to render a newly added section of that type until the next build. -#}
+{% if sections %}
+<div{% editable "array", "sections", { "id-key": "_type" } %}>
+  {% for section in sections %}
+  <div{% editable "array-item", null, { id: section._type } %}>{% include "components/" + section._type + ".njk" %}</div>
+  {% endfor %}
+  {% if not env.isProduction %}
+  {% for blueprint in sectionBlueprints %}
+  {% set section = blueprint %}
+  <template data-id="{{ section._type }}"><div{% editable "array-item", null, { id: section._type } %}>{% include "components/" + section._type + ".njk" %}</div></template>
+  {% endfor %}
+  {% endif %}
+</div>
+{% endif %}
