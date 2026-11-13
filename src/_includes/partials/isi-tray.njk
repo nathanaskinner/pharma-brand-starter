@@ -1,0 +1,9 @@
+<aside class="isi-tray" aria-label="{{ strings.isiHeading }} summary" data-isi-tray>
+  <div class="container isi-tray__inner">
+    <div class="isi-tray__text">
+      <strong class="isi-tray__title">{{ strings.isiHeading }}</strong>
+      {{ isi.trayText | md | safe }}
+    </div>
+    <a class="isi-tray__more" href="#isi">{{ strings.isiExpand }}</a>
+  </div>
+</aside>

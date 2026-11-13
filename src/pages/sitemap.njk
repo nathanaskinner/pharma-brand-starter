@@ -1,0 +1,18 @@
+---
+title: Site map
+description: All pages on the Fictiva demo site.
+permalink: /sitemap.html
+jobCode: US-FIC-0901-01
+order: 91
+llms: false
+---
+<section class="section"><div class="container prose">
+<h1>Site map</h1>
+<ul>
+{%- for item in collections.all | sort(false, false, "data.order") %}
+  {%- if item.url and (item.url == "/" or item.url.endsWith(".html")) and not (item.data.seo and item.data.seo.noindex) %}
+  <li><a href="{{ item.url }}">{{ item.data.title }}</a></li>
+  {%- endif %}
+{%- endfor %}
+</ul>
+</div></section>

@@ -1,0 +1,12 @@
+{%- set pi = documents[isi.links.pi] -%}{%- set mg = documents[isi.links.medGuide] -%}
+<section id="isi" class="isi" aria-labelledby="isi-heading">
+  <div class="container">
+    <h2 id="isi-heading" class="isi__heading">{{ strings.isiHeading }}</h2>
+    <div class="isi__indication">{{ isi.indication | md | safe }}</div>
+    <div class="isi__body">{{ isi.full | md | safe }}</div>
+    <p class="isi__links">
+      Please see <a href="{{ pi.url }}" target="_blank" rel="noopener">{{ pi.label }}</a>
+      and <a href="{{ mg.url }}" target="_blank" rel="noopener">{{ mg.label }}</a>.
+    </p>
+  </div>
+</section>

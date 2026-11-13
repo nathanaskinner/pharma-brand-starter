@@ -1,0 +1,25 @@
+{# Doctor discussion guide: answers stay in the browser; nothing is sent anywhere. #}
+<section class="section">
+  <div class="container container--narrow">
+    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
+    {% if section.intro %}<p class="section__intro">{{ section.intro }}</p>{% endif %}
+    <form class="quiz" data-quiz>
+      {% for q in section.questions %}
+      <fieldset class="quiz__question">
+        <legend>{{ loop.index }}. {{ q.text }}</legend>
+        {% for opt in q.options %}
+        <label><input type="checkbox" name="q{{ loop.index0 }}" value="{{ opt }}" data-question="{{ q.text }}"> {{ opt }}</label>
+        {% endfor %}
+      </fieldset>
+      {% endfor %}
+      <button class="button" type="submit">Create my discussion guide</button>
+    </form>
+    <div class="quiz__result" data-quiz-result hidden tabindex="-1">
+      <h3>Your discussion guide</h3>
+      <p>Bring these points to your next appointment:</p>
+      <ul data-quiz-list></ul>
+      <button class="button button--ghost" type="button" data-quiz-print>Print</button>
+    </div>
+    <noscript><p>This guide needs JavaScript. You can also print this page and circle your answers.</p></noscript>
+  </div>
+</section>

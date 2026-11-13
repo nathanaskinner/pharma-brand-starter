@@ -1,0 +1,25 @@
+---
+pagination:
+  data: collections.articleHubPages
+  size: 1
+  alias: entry
+  addAllPagesToCollections: true
+layout: layouts/article.njk
+isiMode: full
+permalink: "{{ entry.hub.base }}/{{ entry.hub.slug }}/{{ entry.article.fileSlug }}.html"
+eleventyComputed:
+  title: "{{ entry.article.data.title }}"
+  description: "{{ entry.article.data.description }}"
+  jobCode: "{{ entry.article.data.jobCode }}"
+  image: "{{ entry.article.data.image }}"
+  alt: "{{ entry.article.data.alt }}"
+  hubTitle: "{{ entry.hub.title }}"
+  hubUrl: "{{ entry.hub.base }}/{{ entry.hub.slug }}.html"
+  order: 30
+  # Hub-specific title, so the same article in two hubs doesn't produce duplicate titles
+  seo:
+    title: "{{ entry.article.data.title }} | {{ entry.hub.title }} | {{ site.name }}"
+  # Canonical = the article's FIRST hub, so search engines treat the other copies as the same page
+  canonicalUrl: "{% for h in hubsData %}{% if h.key == entry.article.data.hubs[0] %}{{ h.base }}/{{ h.slug }}/{{ entry.article.fileSlug }}.html{% endif %}{% endfor %}"
+---
+{{ entry.article.content | safe }}

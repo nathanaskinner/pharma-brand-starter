@@ -1,0 +1,17 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "name": {{ site.owner | dump | safe }}, "url": "{{ site.url }}" },
+    { "@type": "WebSite", "name": {{ site.fullName | dump | safe }}, "url": "{{ site.url }}", "inLanguage": "en-US" },
+    { "@type": "WebPage", "name": {{ title | dump | safe }}, "url": "{{ site.url }}{{ page.url }}", "dateModified": "{{ page.date.toISOString() }}" }
+    {%- if breadcrumbs %},
+    { "@type": "BreadcrumbList", "itemListElement": [
+      {%- for crumb in breadcrumbs %}
+      { "@type": "ListItem", "position": {{ loop.index }}, "name": {{ crumb.title | dump | safe }}, "item": "{{ site.url }}{{ crumb.url }}" }{{ "," if not loop.last }}
+      {%- endfor %}
+    ]}
+    {%- endif %}
+  ]
+}
+</script>

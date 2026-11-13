@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="container">
+    <ul class="site-footer__links" role="list">
+      {% for link in footer.links %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>{% endfor %}
+    </ul>
+    <p class="site-footer__legal">{{ footer.legal }}</p>
+    <p class="site-footer__meta">
+      © {{ env.year }} {{ footer.owner }} All rights reserved.
+      <span class="job-code" data-job-code="{{ jobCode or site.defaultJobCode }}">{{ jobCode or site.defaultJobCode }}</span>
+      {% if page.date %}<span>Last updated {{ page.date | readableDate }}</span>{% endif %}
+    </p>
+  </div>
+</footer>

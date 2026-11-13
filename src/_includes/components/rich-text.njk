@@ -1,0 +1,6 @@
+<section class="section{% if section.background %} section--{{ section.background }}{% endif %}">
+  <div class="container prose">
+    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
+    {{ section.body | md | safe }}
+  </div>
+</section>

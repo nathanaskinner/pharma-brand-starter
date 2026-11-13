@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+---
+<article class="article">
+  <header class="article__header">
+    <div class="container container--narrow">
+      <p class="eyebrow"><a href="{{ hubUrl }}">{{ hubTitle }}</a></p>
+      <h1>{{ title }}</h1>
+      <p class="lede">{{ description }}</p>
+    </div>
+  </header>
+  {% if image %}
+  <div class="container container--narrow">
+    <img class="article__image" src="{{ image }}" alt="{{ alt }}" width="1600" height="1000">
+  </div>
+  {% endif %}
+  <div class="container container--narrow prose">
+    {{ content | safe }}
+    <p class="article__reviewed">Last reviewed: {{ page.date | readableDate }}</p>
+  </div>
+</article>

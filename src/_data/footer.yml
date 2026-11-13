@@ -1,0 +1,10 @@
+owner: Example Pharma, Inc.
+links:
+  - { label: Site map, url: /sitemap.html }
+  - { label: Privacy policy, url: "#" }
+  - { label: Terms of use, url: "#" }
+  - { label: Cookie preferences, url: "#cookie-preferences" }
+  - { label: Contact us, url: "#" }
+legal: >-
+  Fictiva™ is a fictional trademark used for demonstration only. This site is a technical demo and
+  does not provide medical information. Talk to a healthcare provider about any medical questions.

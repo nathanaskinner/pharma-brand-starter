@@ -1,0 +1,41 @@
+<header class="site-header">
+  <div class="utility-bar">
+    <div class="container utility-bar__inner">
+      <span class="utility-bar__label">For U.S. residents only</span>
+      <ul class="utility-bar__links" role="list">
+        {% for link in nav.utility %}
+          {% if link.doc %}
+            <li><a href="{{ documents[link.doc].url }}" target="_blank" rel="noopener">{{ link.label }}</a></li>
+          {% else %}
+            <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+          {% endif %}
+        {% endfor %}
+        <li><a href="#isi">Important Safety Information</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container site-header__inner">
+    <a class="logo" href="/" aria-label="{{ site.name }} home">
+      <span class="logo__mark" aria-hidden="true"></span>
+      <span class="logo__text">{{ site.name }}<sup>™</sup></span>
+      <span class="logo__generic">({{ site.generic }})</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Main">
+      <ul role="list">
+        {% for item in nav.primary %}
+        <li class="primary-nav__item">
+          <a href="{{ item.url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.label }}</a>
+          {% if item.children %}
+          <ul class="primary-nav__sub" role="list">
+            {% for child in item.children %}
+            <li><a href="{{ child.url }}" {% if page.url == child.url %}aria-current="page"{% endif %}>{{ child.label }}</a></li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,8 @@
+<section class="section">
+  <div class="container">
+    <div class="callout">
+      <div class="callout__text">{{ section.text | md | safe }}</div>
+      {% if section.cta %}<a class="button" href="{{ section.cta.url }}">{{ section.cta.label }}</a>{% endif %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+{% if site.oneTrustId %}
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-domain-script="{{ site.oneTrustId }}" charset="UTF-8"></script>
+<script>function OptanonWrapper() {}</script>
+{% endif %}
+{# Analytics and marketing tags go here as type="text/plain" with the consent tool's category class,
+   so they only run after the visitor opts in. #}

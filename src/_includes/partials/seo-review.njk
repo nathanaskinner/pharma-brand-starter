@@ -1,0 +1,11 @@
+{%- set seoTitle = (seo and seo.title) or (title + " | " + site.fullName) -%}
+{%- set seoDesc = (seo and seo.description) or description -%}
+<aside class="seo-review" aria-label="SEO metadata for review (staging only)">
+  <h2>SEO metadata (staging only)</h2>
+  <dl>
+    <dt>Title</dt><dd>{{ seoTitle }} <span>({{ seoTitle | length }} chars)</span></dd>
+    <dt>Description</dt><dd>{{ seoDesc }} <span>({{ seoDesc | length }} chars)</span></dd>
+    <dt>Canonical</dt><dd>{{ site.url }}{{ page.url }}</dd>
+    <dt>Job code</dt><dd>{{ jobCode or site.defaultJobCode }}</dd>
+  </dl>
+</aside>

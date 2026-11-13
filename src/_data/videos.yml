@@ -1,0 +1,10 @@
+storyAlex:
+  vimeoId: "76979871"         # Vimeo's public sample video, used as a stand-in
+  title: "Alex's story (sample video)"
+  poster: /assets/images/story-alex.jpg
+  transcript: /treatment/is-fictiva-right-for-me/patient-stories/alex-transcript.html
+howToTake:
+  vimeoId: "76979871"
+  title: "How to take Fictiva (sample video)"
+  poster: /assets/images/how-to-take.jpg
+  transcript: /treatment/how-to-take-fictiva/transcript.html

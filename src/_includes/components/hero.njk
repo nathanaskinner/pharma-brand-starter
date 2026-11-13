@@ -1,0 +1,16 @@
+<section class="hero{% if section.variant %} hero--{{ section.variant }}{% endif %}">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      {% if section.eyebrow %}<p class="eyebrow">{{ section.eyebrow }}</p>{% endif %}
+      <h1 class="hero__heading">{{ section.heading }}</h1>
+      {% if section.body %}<div class="hero__body">{{ section.body | md | safe }}</div>{% endif %}
+      {% if section.cta %}<a class="button" href="{{ section.cta.url }}">{{ section.cta.label }}</a>{% endif %}
+      {% if section.secondaryCta %}<a class="button button--ghost" href="{{ section.secondaryCta.url }}">{{ section.secondaryCta.label }}</a>{% endif %}
+    </div>
+    {% if section.image %}
+    <div class="hero__media">
+      <img src="{{ section.image }}" alt="{{ section.alt }}" width="1600" height="1000" loading="eager" fetchpriority="high">
+    </div>
+    {% endif %}
+  </div>
+</section>

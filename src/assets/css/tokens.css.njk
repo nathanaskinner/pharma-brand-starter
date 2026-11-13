@@ -1,0 +1,19 @@
+---
+permalink: /assets/css/tokens.css
+eleventyExcludeFromCollections: true
+---
+/* Generated from src/_data/tokens.json (exported from Figma variables). Do not edit by hand. */
+:root {
+{%- for name, value in tokens.color %}
+  --color-{{ name }}: {{ value }};
+{%- endfor %}
+{%- for name, value in tokens.space %}
+  --space-{{ name }}: {{ value }};
+{%- endfor %}
+{%- for name, value in tokens.font %}
+  --font-{{ name }}: {{ value }};
+{%- endfor %}
+{%- for name, value in tokens.radius %}
+  --radius-{{ name }}: {{ value }};
+{%- endfor %}
+}

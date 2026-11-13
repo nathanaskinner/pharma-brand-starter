@@ -1,0 +1,24 @@
+{
+  "name": "pharma-brand-starter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Eleventy starter for small and mid-size pharma brand sites (demo: fictional product Fictiva).",
+  "type": "module",
+  "scripts": {
+    "placeholders": "node scripts/make-placeholders.js",
+    "dev": "eleventy --serve",
+    "build": "eleventy && node scripts/check-compliance.js",
+    "build:prod": "ELEVENTY_ENV=production npm run build",
+    "check": "node scripts/check-compliance.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.8",
+    "@11ty/eleventy-img": "^7.1.1",
+    "esbuild": "^0.28.2",
+    "js-yaml": "^5.5.0",
+    "markdown-it": "^15.0.3"
+  }
+}

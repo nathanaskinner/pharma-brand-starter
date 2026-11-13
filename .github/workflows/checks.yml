@@ -1,0 +1,23 @@
+name: Checks
+on:
+  pull_request:
+  push:
+    branches: [main, staging]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [staging, production]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build and run compliance check (${{ matrix.environment }})
+        run: npm run build
+        env:
+          ELEVENTY_ENV: ${{ matrix.environment }}

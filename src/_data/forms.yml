@@ -1,0 +1,4 @@
+signup:
+  provider: formassembly
+  id: "000000"                # FormAssembly form ID (demo: renders a non-submitting preview)
+  successUrl: /treatment/sign-up/thank-you.html

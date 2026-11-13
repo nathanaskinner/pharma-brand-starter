@@ -1,0 +1,33 @@
+{% set form = forms[section.form] %}
+<section class="section">
+  <div class="container container--narrow">
+    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
+    {% if section.intro %}<div class="section__intro">{{ section.intro | md | safe }}</div>{% endif %}
+    <div class="form-embed" id="form-{{ form.id }}">
+      {% if form.id != "000000" %}
+        {# Paste the exact JS embed snippet from FormAssembly's Publish tab. #}
+        <script src="https://{{ site.formAssemblyHost }}/publish/{{ form.id }}"></script>
+        <noscript>Please enable JavaScript to complete this form.</noscript>
+      {% else %}
+        {# DEMO PREVIEW: shows the layout only. It does not submit or store anything.
+           Patient data must go to FormAssembly (HIPAA plan, under a BAA), never to this site. #}
+        <form class="demo-form" action="{{ form.successUrl }}" method="get" data-demo-form>
+          <p class="demo-form__notice">Demo preview: this form does not submit any data.</p>
+          <div class="field"><label for="fn">First name</label><input id="fn" name="fn" autocomplete="given-name" required></div>
+          <div class="field"><label for="ln">Last name</label><input id="ln" name="ln" autocomplete="family-name" required></div>
+          <div class="field"><label for="em">Email</label><input id="em" name="em" type="email" autocomplete="email" required></div>
+          <fieldset class="field">
+            <legend>Are you currently taking Fictiva?</legend>
+            <label><input type="radio" name="status" value="taking"> Yes</label>
+            <label><input type="radio" name="status" value="considering"> No, I'm considering it</label>
+          </fieldset>
+          <div class="field field--check">
+            <input id="consent" type="checkbox" required>
+            <label for="consent">I agree to receive information from Example Pharma. (Sample consent text; real wording is MLR-approved.)</label>
+          </div>
+          <button class="button" type="submit">Sign up</button>
+        </form>
+      {% endif %}
+    </div>
+  </div>
+</section>

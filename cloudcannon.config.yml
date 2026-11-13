@@ -1,0 +1,52 @@
+# CloudCannon: visual editing on top of the git repo. Each save is a commit to the staging branch.
+collections_config:
+  pages:
+    path: src/pages
+    url: "/[full_slug].html"
+    name: Pages
+    icon: description
+  articles:
+    path: src/articles
+    name: Articles
+    icon: article
+    _enabled_editors: [content, data]
+  data:
+    path: src/_data
+    name: Site data (ISI, navigation, footer, forms, documents)
+    icon: settings
+    disable_add: true
+
+_inputs:
+  jobCode:
+    type: text
+    comment: Approved job code from Veeva for this page. Required.
+  hubs:
+    type: multiselect
+    options:
+      values: [together, support]
+  image:
+    type: image
+    options: { paths: { uploads: src/assets/images } }
+  full:
+    type: markdown
+    comment: Full ISI. Any change requires MLR approval.
+  isiMode:
+    type: select
+    options: { values: [full, none] }
+    comment: Leave as "full" unless legal approves removing ISI from this page.
+
+_structures:
+  sections:
+    style: modal
+    values:
+      - { label: Hero, value: { _type: hero, eyebrow:, heading:, body:, image:, alt:, cta: { label:, url: } } }
+      - { label: Rich text, value: { _type: rich-text, heading:, body: } }
+      - { label: Steps, value: { _type: steps, heading:, items: [] } }
+      - { label: Card grid, value: { _type: card-grid, heading:, cards: [] } }
+      - { label: Stat row, value: { _type: stat-row, heading:, stats: [], footnote: } }
+      - { label: Callout, value: { _type: callout, text:, cta: { label:, url: } } }
+      - { label: FAQ, value: { _type: faq, heading:, items: [] } }
+      - { label: Video, value: { _type: video, heading:, video: } }
+      - { label: Form, value: { _type: form-embed, heading:, form:, intro: } }
+      - { label: Discussion guide, value: { _type: quiz, heading:, questions: [] } }
+      - { label: Call to action, value: { _type: cta, heading:, body:, cta: { label:, url: } } }

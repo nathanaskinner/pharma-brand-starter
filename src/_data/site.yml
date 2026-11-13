@@ -1,0 +1,14 @@
+name: Fictiva
+generic: fictivatide
+fullName: "Fictiva™ (fictivatide)"
+owner: Example Pharma, Inc.
+url: https://www.fictiva-demo.example
+locale: en-US
+defaultJobCode: US-FIC-0000-XX     # placeholder: the build fails in production if any page still uses it
+defaultOgImage: /assets/images/og/default.jpg
+formAssemblyHost: example.tfaforms.net
+oneTrustId: ""                      # client's OneTrust ID; empty = consent stub for the demo
+llmsSummary: >-
+  Fictiva (fictivatide) is a fictional once-weekly prescription medicine used in this demo site.
+  It is not a real product. See Important Safety Information on every page.
+demo: true                          # shows the "fictional product" notice

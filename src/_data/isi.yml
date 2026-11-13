@@ -1,0 +1,33 @@
+# Important Safety Information: ONE source for every page.
+# SAMPLE TEXT for a fictional product. Real ISI comes verbatim from the approved label via MLR.
+jobCode: US-FIC-ISI-0001
+indication: |
+  **What is Fictiva?**
+  Fictiva (fictivatide) is a fictional once-weekly prescription medicine used on this demo site to show
+  how safety information is presented. It is not a real medicine.
+trayText: |
+  **Sample warning:** Fictiva may cause serious side effects. This placeholder text stands in for the
+  boxed warning and key risks that appear on a real brand site.
+full: |
+  ### Important Safety Information (sample text)
+
+  **Do not use Fictiva if** this placeholder describes you. On a real site, this section lists who
+  should not take the medicine, exactly as written in the approved label.
+
+  **Fictiva may cause serious side effects, including:**
+
+  - **Sample side effect one.** Placeholder description of a serious risk and what to watch for.
+  - **Sample side effect two.** Placeholder description and when to call a healthcare provider.
+  - **Sample side effect three.** Placeholder description.
+
+  **The most common side effects** in this sample text include example effect A, example effect B and
+  example effect C.
+
+  **Before using Fictiva, tell your healthcare provider** about your medical conditions and the
+  medicines you take. (Sample text.)
+
+  You are encouraged to report negative side effects of prescription drugs to the FDA. Visit
+  [www.fda.gov/medwatch](https://www.fda.gov/medwatch) or call 1-800-FDA-1088.
+links:
+  pi: pi
+  medGuide: medGuide

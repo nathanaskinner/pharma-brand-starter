@@ -1,0 +1,18 @@
+{%- set seoTitle = (seo and seo.title) or (title + " | " + site.fullName) -%}
+{%- set seoDesc = (seo and seo.description) or description -%}
+{%- set ogImage = (seo and seo.ogImage) or site.defaultOgImage -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ seoTitle }}</title>
+<meta name="description" content="{{ seoDesc }}">
+<link rel="canonical" href="{{ site.url }}{{ canonicalUrl or page.url }}">
+{% if not env.isProduction or (seo and seo.noindex) or site.demo %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.fullName }}">
+<meta property="og:title" content="{{ seoTitle }}">
+<meta property="og:description" content="{{ seoDesc }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ site.url }}{{ ogImage }}">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+{% include "partials/structured-data.njk" %}

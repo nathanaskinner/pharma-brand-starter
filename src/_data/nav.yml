@@ -1,0 +1,22 @@
+primary:
+  - label: Is Fictiva right for me?
+    url: /treatment/is-fictiva-right-for-me.html
+    children:
+      - { label: Results, url: /treatment/is-fictiva-right-for-me/results.html }
+      - { label: Safety and side effects, url: /treatment/is-fictiva-right-for-me/safety-side-effects.html }
+      - { label: Patient stories, url: /treatment/is-fictiva-right-for-me/patient-stories.html }
+  - label: Starting Fictiva
+    url: /treatment/starting-fictiva.html
+    children:
+      - { label: Getting started, url: /treatment/starting-fictiva/getting-started.html }
+      - { label: How to take Fictiva, url: /treatment/how-to-take-fictiva.html }
+      - { label: Dosing, url: /treatment/fictiva-dosing.html }
+      - { label: FAQ, url: /treatment/starting-fictiva/faq.html }
+  - label: Cost and savings
+    url: /treatment/cost-and-savings.html
+  - label: How to get Fictiva
+    url: /treatment/how-to-get-fictiva.html
+utility:
+  - { label: Prescribing Information, doc: pi }
+  - { label: Medication Guide, doc: medGuide }
+  - { label: Sign up, url: /treatment/sign-up.html }

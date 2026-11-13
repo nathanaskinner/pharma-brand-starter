@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+---
+{% if breadcrumbs %}{% include "partials/breadcrumbs.njk" %}{% endif %}
+{% for section in sections %}
+  {% include "components/" + section._type + ".njk" %}
+{% endfor %}
+{% if hubKey %}
+  {% set hubEntries = [] %}
+  {% for entry in collections.articleHubPages %}
+    {% if entry.hub.key == hubKey %}{% set hubEntries = (hubEntries.push(entry), hubEntries) %}{% endif %}
+  {% endfor %}
+  <section class="section">
+    <div class="container">
+      <h2>Articles</h2>
+      <ul class="card-grid" role="list">
+        {% for entry in hubEntries %}
+        <li class="card">
+          <img src="{{ entry.article.data.image }}" alt="" width="1600" height="1000">
+          <div class="card__body">
+            <h3 class="card__title"><a href="{{ entry.hub.base }}/{{ entry.hub.slug }}/{{ entry.article.fileSlug }}.html">{{ entry.article.data.title }}</a></h3>
+            <p>{{ entry.article.data.description }}</p>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+{% endif %}
+{% if content | trim %}<section class="section"><div class="container prose">{{ content | safe }}</div></section>{% endif %}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{ site.locale | default('en-US') }}">
+<head>
+  {% include "partials/head-meta.njk" %}
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  {% include "partials/consent.njk" %}
+</head>
+<body class="{{ bodyClass }}">
+  {% if not env.isProduction %}{% include "partials/review-banner.njk" %}{% endif %}
+  <a class="skip-link" href="#main">{{ strings.skipToContent }}</a>
+  {% if site.demo %}<p class="demo-notice">Demo site: Fictiva is a fictional product. Nothing here is medical information.</p>{% endif %}
+  {% include "partials/header.njk" %}
+
+  <main id="main" tabindex="-1">
+    {{ content | safe }}
+  </main>
+
+  {% if isiMode != "none" %}
+    {% include "partials/isi-full.njk" %}
+    {% include "partials/isi-tray.njk" %}
+  {% else %}
+    <div data-isi="none" hidden></div>
+  {% endif %}
+
+  {% include "partials/footer.njk" %}
+  {% if not env.isProduction %}{% include "partials/seo-review.njk" %}{% endif %}
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# PDFs live at FIXED URLs forever: printed materials and QR codes point to them.
+# Replace a file at the same path; never rename it.
+pi:
+  label: Prescribing Information
+  url: /pdf/prescribing-information.pdf
+medGuide:
+  label: Medication Guide
+  url: /pdf/medication-guide.pdf

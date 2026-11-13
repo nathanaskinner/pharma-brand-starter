@@ -1,0 +1,17 @@
+<section class="section{% if section.background %} section--{{ section.background }}{% endif %}">
+  <div class="container">
+    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
+    {% if section.intro %}<p class="section__intro">{{ section.intro }}</p>{% endif %}
+    <ul class="card-grid" role="list">
+      {% for card in section.cards %}
+      <li class="card">
+        {% if card.image %}<img src="{{ card.image }}" alt="" width="1600" height="1000">{% endif %}
+        <div class="card__body">
+          <h3 class="card__title">{% if card.url %}<a href="{{ card.url }}">{{ card.title }}</a>{% else %}{{ card.title }}{% endif %}</h3>
+          {% if card.body %}<p>{{ card.body }}</p>{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

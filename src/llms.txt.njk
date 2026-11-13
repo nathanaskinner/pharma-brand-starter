@@ -1,0 +1,18 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# {{ site.fullName }}
+
+> {{ site.llmsSummary }}
+
+Important Safety Information: {{ site.url }}/#isi
+Prescribing Information: {{ site.url }}{{ documents.pi.url }}
+Medication Guide: {{ site.url }}{{ documents.medGuide.url }}
+
+## Key pages
+{% for item in collections.all | sort(false, false, "data.order") -%}
+{%- if item.url and (item.url == "/" or item.url.endsWith(".html")) and item.data.llms !== false and not (item.data.seo and item.data.seo.noindex) %}
+- [{{ item.data.title }}]({{ site.url }}{{ item.url }}): {{ item.data.description }}
+{%- endif %}
+{%- endfor %}

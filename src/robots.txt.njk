@@ -1,0 +1,22 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+{% if env.isProduction and not site.demo -%}
+{% for bot in crawlers.block %}User-agent: {{ bot }}
+Disallow: /
+
+{% endfor -%}
+{% for bot in crawlers.allow %}User-agent: {{ bot }}
+Allow: /
+
+{% endfor -%}
+User-agent: *
+Allow: /
+
+Sitemap: {{ site.url }}/sitemap.xml
+{%- else -%}
+# Staging, preview or demo build: keep everything out of search engines and AI indexes.
+User-agent: *
+Disallow: /
+{%- endif %}

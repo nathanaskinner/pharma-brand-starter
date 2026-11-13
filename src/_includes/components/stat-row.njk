@@ -1,0 +1,14 @@
+<section class="section section--alt">
+  <div class="container">
+    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
+    <ul class="stat-row" role="list">
+      {% for stat in section.stats %}
+      <li class="stat">
+        <span class="stat__value">{{ stat.value }}</span>
+        <span class="stat__label">{{ stat.label }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% if section.footnote %}<p class="footnote">{{ section.footnote }}</p>{% endif %}
+  </div>
+</section>

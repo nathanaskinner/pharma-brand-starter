@@ -1,0 +1,16 @@
+<section class="section{% if section.background %} section--{{ section.background }}{% endif %}">
+  <div class="container">
+    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
+    <ol class="steps" role="list">
+      {% for item in section.items %}
+      <li class="steps__item">
+        <span class="steps__number" aria-hidden="true">{{ loop.index }}</span>
+        <div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.body }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

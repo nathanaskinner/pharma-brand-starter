@@ -1,0 +1,14 @@
+# AI crawler policy. CLIENT LEGAL DECISION. Names change: check each company's docs before launch.
+allow:            # search, answers and user-requested fetches
+  - OAI-SearchBot
+  - ChatGPT-User
+  - Claude-SearchBot
+  - Claude-User
+  - PerplexityBot
+  - Perplexity-User
+block:            # model training
+  - GPTBot
+  - ClaudeBot
+  - Google-Extended
+  - Applebot-Extended
+  - CCBot

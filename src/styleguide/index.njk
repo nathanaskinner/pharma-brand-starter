@@ -1,0 +1,52 @@
+---
+title: Styleguide
+description: Every component in the starter, for design and accessibility review.
+jobCode: US-FIC-STYLE-00
+sections:
+  - _type: hero
+    eyebrow: Component library
+    heading: Styleguide
+    body: Every section component with sample content. Check each one against Figma at mobile, tablet and desktop widths.
+    image: /assets/images/hero-home.jpg
+    alt: ""
+    cta: { label: Primary button, url: "#" }
+    secondaryCta: { label: Ghost button, url: "#" }
+  - _type: stat-row
+    heading: stat-row
+    stats: [{ value: "1×", label: Stat label }, { value: "42", label: Stat label }, { value: "99%", label: Stat label }]
+    footnote: Footnote text.
+  - _type: steps
+    heading: steps
+    items: [{ title: Step one, body: Body text. }, { title: Step two, body: Body text. }, { title: Step three, body: Body text. }]
+  - _type: card-grid
+    heading: card-grid
+    cards: [{ title: Card with link, body: Body text., url: "#", image: /assets/images/card-faq.jpg }, { title: Card without link, body: Body text. }]
+  - _type: callout
+    text: "**callout** with a button."
+    cta: { label: Button, url: "#" }
+  - _type: rich-text
+    heading: rich-text
+    body: "Paragraph with **bold**, a [link](#) and a list:\n\n- One\n- Two"
+  - _type: faq
+    heading: faq
+    items: [{ q: Question one?, a: Answer one. }, { q: Question two?, a: Answer two. }]
+  - _type: video
+    heading: video
+    video: howToTake
+  - _type: quiz
+    heading: quiz
+    questions: [{ text: Sample question?, options: [Option A, Option B] }]
+  - _type: form-embed
+    heading: form-embed
+    form: signup
+  - _type: cta
+    heading: cta
+    body: Body text.
+    cta: { label: Button, url: "#" }
+---
+<h2>Design tokens</h2>
+<div class="swatches">
+{%- for name, value in tokens.color %}
+  <div class="swatch"><div class="swatch__color" style="background: {{ value }}"></div><div class="swatch__name">{{ name }}<br>{{ value }}</div></div>
+{%- endfor %}
+</div>

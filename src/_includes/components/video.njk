@@ -1,0 +1,17 @@
+{% set v = videos[section.video] %}
+<section class="section">
+  <div class="container container--narrow">
+    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
+    <figure class="video" data-vimeo-id="{{ v.vimeoId }}" data-video-title="{{ v.title }}">
+      <button type="button" class="video__play">
+        <img src="{{ v.poster }}" alt="" width="1600" height="1000">
+        <span class="video__icon" aria-hidden="true"></span>
+        <span class="visually-hidden">{{ strings.playVideo }} {{ v.title }}</span>
+      </button>
+      <figcaption>
+        {{ v.title }}
+        {% if v.transcript %} · <a href="{{ v.transcript }}">{{ strings.readTranscript }}</a>{% endif %}
+      </figcaption>
+    </figure>
+  </div>
+</section>
