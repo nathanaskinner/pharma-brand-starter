@@ -8,8 +8,18 @@ paths:
   uploads_filename: "{filename|slugify}"
 
 collections_config:
+  # The home page gets its own collection: "/[full_slug].html" can't produce "/" for index.md,
+  # so CloudCannon couldn't match the file to the page and visual editing didn't load.
+  home:
+    path: src/pages
+    glob: [index.md]
+    url: /
+    name: Home page
+    icon: home
+    disable_add: true
   pages:
     path: src/pages
+    glob: ["**/*.md", "!index.md"]
     url: "/[full_slug].html"
     name: Pages
     icon: description
