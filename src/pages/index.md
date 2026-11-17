@@ -8,7 +8,7 @@ order: 1
 sections:
   - _type: hero
     eyebrow: Once-weekly Fictiva™
-    heading: Make room for the life you want.
+    heading: Make room for the life you want!
     body: Fictiva is a fictional once-weekly prescription medicine. This demo shows
       how a real brand site is structured, reviewed and built.
     image: /assets/images/home-hero.jpg
