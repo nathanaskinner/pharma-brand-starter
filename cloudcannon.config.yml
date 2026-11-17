@@ -17,12 +17,14 @@ collections_config:
     name: Home page
     icon: home
     disable_add: true
+    _enabled_editors: [visual, data]   # all content is in front matter; the Content editor would be blank
   pages:
     path: src/pages
     glob: ["**/*.md", "!index.md"]
     url: "/[full_slug].html"
     name: Pages
     icon: description
+    _enabled_editors: [visual, data]
   articles:
     path: src/articles
     name: Articles
