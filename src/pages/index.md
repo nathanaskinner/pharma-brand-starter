@@ -11,7 +11,7 @@ sections:
     heading: Make room for the life you want!
     body: Fictiva is a fictional once-weekly prescription medicine. This demo shows
       how a real brand site is structured, reviewed and built.
-    image: /assets/images/home-hero.jpg
+    image: /assets/images/alex-guillaume-gu3pd-ccmbk-unsplash.jpg
     alt: A woman running along a rocky ridge, silhouetted against the setting sun
     cta:
       label: See if Fictiva is right for you
